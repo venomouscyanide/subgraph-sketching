@@ -49,7 +49,7 @@ def get_loaders(args, dataset, splits, directed):
     if (args.dataset_name == 'ogbl-citation2') and (args.model in {'ELPH', 'BUDDY'}):
         train_eval_loader = dl(
             make_train_eval_data(args, train_dataset, train_data.num_nodes,
-                                  n_pos_samples=5000), batch_size=args.batch_size, shuffle=False,
+                                 n_pos_samples=5000), batch_size=args.batch_size, shuffle=False,
             num_workers=args.num_workers)
     else:
         # todo change this so that eval doesn't have to use the full training set
@@ -92,6 +92,9 @@ def get_data(args):
     if dataset_name.startswith('ogbl-citation'):
         eval_metric = 'mrr'
         directed = True
+
+    if dataset_name.startswith('ogbl-vessel'):
+        eval_metric = 'auc'
 
     if use_lcc_flag:
         dataset = use_lcc(dataset)
