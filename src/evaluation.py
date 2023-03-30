@@ -93,6 +93,6 @@ def evaluate_auc(val_pred, val_true, test_pred, test_true):
     valid_auc = roc_auc_score(val_true, val_pred)
     test_auc = roc_auc_score(test_true, test_pred)
     results = {}
-    results['AUC'] = (valid_auc, test_auc)
+    results['AUC'] = (0, valid_auc, test_auc)
 
     return results
