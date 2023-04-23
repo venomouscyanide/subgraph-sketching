@@ -1,5 +1,13 @@
 # subgraph-sketching (Work in Progress)
 
+## Running ogbl-vessel
+I created this fork in an attempt to run BUDDY on the ogbl-vessel dataset. I used the following command to run BUDDY on vessel.
+
+`python runners/run.py --dataset_name ogbl-vessel --model BUDDY --batch_size 256 --eval_batch_size 256 
+ --feature_dropout 0.05 --label_dropout 0.1 --reps 10 --epochs 50 --num_workers 48`
+ 
+ The only code changes made are to support this additional dataset.
+
 ## Introduction
 
 This is a reimplementation of the code used for "Graph Neural Networks for Link Prediction with Subgraph Sketching" https://openreview.net/pdf?id=m1oqEOAozQU which was accepted for oral presentation (top 5% of accepted papers) at ICLR 2023.
